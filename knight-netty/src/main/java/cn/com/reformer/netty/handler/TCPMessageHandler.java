@@ -54,6 +54,10 @@ public class TCPMessageHandler extends SimpleChannelInboundHandler <String>{
             else if(bpg.getCmd()== MessageID.MSG_0x05){
                 bpg =    g.fromJson(msg.toString(), MSG_0x05.class);
             }
+            else if(bpg.getCmd()== MessageID.MSG_0x06){
+                bpg =    g.fromJson(msg.toString(), MSG_0x06.class);
+            }
+
             if(null !=bpg){
                 try {
 

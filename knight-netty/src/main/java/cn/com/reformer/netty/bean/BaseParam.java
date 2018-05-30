@@ -73,4 +73,17 @@ public     class BaseParam  implements MessagePacket{
 		this.type = type;
 	}
 
+	@Override
+	public String toString() {
+		return "BaseParam{" +
+				"cmd=" + cmd +
+				", sn='" + sn + '\'' +
+				", version=" + version +
+				", nonce='" + nonce + '\'' +
+				", sign='" + sign + '\'' +
+				", sentid='" + sentid + '\'' +
+				", type=" + type +
+				", sentMsg='" + sentMsg + '\'' +
+				'}';
+	}
 }

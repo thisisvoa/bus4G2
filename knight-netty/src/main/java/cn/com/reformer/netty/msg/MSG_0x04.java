@@ -31,5 +31,10 @@ public class MSG_0x04 extends BaseParam {
         return MessageID.MSG_0x04;
     }
 
-
+    @Override
+    public String toString() {
+        return "MSG_0x04{" +
+                "status=" + status +
+                '}';
+    }
 }

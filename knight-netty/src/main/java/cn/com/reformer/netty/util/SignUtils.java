@@ -32,8 +32,11 @@ public class SignUtils {
         String crc = getCRC(_temp_crc);
 
         byte[] src = hexStringToBytes(crc);
-        System.arraycopy(src, 0, ret, 14, 2);
         try {
+            if(src.length>1)
+            System.arraycopy(src, 0, ret, 14, 2);
+            else
+                System.arraycopy(src, 0, ret, 14, 1);
             String bytes2Hex = bytes2Hex(ret);
             System.out.println(bytes2Hex);
             byte[] encryptResult = AESCoder.encrypt(ret, keys);

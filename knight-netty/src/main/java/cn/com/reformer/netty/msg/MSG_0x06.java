@@ -49,4 +49,12 @@ public class MSG_0x06 extends BaseParam {
     public void setResult(Integer result) {
         this.result = result;
     }
+
+    @Override
+    public String toString() {
+        return "MSG_0x06{" +
+                ", face=" + face +
+                ", result=" + result +
+                '}';
+    }
 }

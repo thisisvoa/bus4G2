@@ -27,12 +27,28 @@
             <td th:text="${user.sn}">1</td>
             <td th:text="${user.ipAndPort}">Red chair</td>
             <td th:text="${user.type}">$350</td>
-           <td> <a  target="_blank" th:href="@{/handlerQrcode(sn=${user.sn})}">发送收费成功指令</a>||  <a  target="_blank"   th:href="@{/getStatus(sn=${user.sn})}">查询状态</a></td>
-            <td> <form method="post" action="./face" target="_blank">
+            <td> <button type="button"  th:formmethod="get" th:onclick="'javascript:test1('+${user.sn}+')'"  >发送收费成功指令</button>
+                <button type="button"  th:formmethod="get" th:onclick="'javascript:test2('+${user.sn}+')'"  >查询状态</button>
+            </td>
+            <td>
+                <script>
+
+                    function  test1(sn) {
+                        $.get( "/handlerQrcode?sn="+sn);
+                    }
+                    function  test2(sn) {
+                        $.get( "/getStatus?sn="+sn);
+                    }
+                </script>
+
+                <form method="post" action="./face" target="frameFile">
                 sn: <input id="sn" type="text"  th:value="${user.sn}" name="sn"/>
                 num: <input id="num" type="text" name="num"/>
                 <input type="submit" value="Submit" />
-            </form> </td>
+            </form>
+                <iframe name='frameFile' style='display: none;'>
+                </iframe>
+            </td>
         </tr>
 
     </table>

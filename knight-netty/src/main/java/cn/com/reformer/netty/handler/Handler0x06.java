@@ -30,9 +30,9 @@ public class Handler0x06 extends TCPMessageHandlerAdapter {
     public void doHandle(BaseParam m, ChannelHandlerContext ctx) {
         try {
             if (m instanceof MSG_0x06) {
-                MSG_0x06 msg = (MSG_0x06) m;
 
-                template.convertAndSend("/topic/getResponse", "发送屏幕显示(设备处理成功返回0，失败返回1)："+msg.getResult()+"  时间："+ DateUtils.formatDate(new Date(),"yyyy-MM-dd HH:mm:ss"));
+
+                template.convertAndSend("/topic/getResponse", "发送屏幕显示(设备处理成功返回0，失败返回1)："+m.toString()+"  时间："+ DateUtils.formatDate(new Date(),"yyyy-MM-dd HH:mm:ss"));
                // eventBus.post(msg);
 //                MsgCache.getInstance().remove(msg.getHead() + ";" + msg.getHead().getSeq());
             } else {
